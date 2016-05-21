@@ -5,3 +5,13 @@ step 2:将本工程设置为git可以管理的pro
     2）在root目录运行'git init' -> 'git add README' -> 'git commit -m "description"',到此是在本地提交了代码
     3）创建远程仓库，并执行'git remote add origin https://github.com/lixufei/bowlinggame.git'
     4）将代码提交到远程仓库'git push -u origin master'(第一次提交到命令)
+
+常用快捷键：
+    1）Alt ＋ Enter
+    2）Command ＋ e
+    3）Command ＋ shift ＋ c
+    4）Command ＋ shift ＋ v
+    5）Command ＋ d
+    6）Ctrl ＋ tab
+    7）Command ＋ shift ＋ F10
+    and so on.
