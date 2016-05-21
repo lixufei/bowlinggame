@@ -1,0 +1,7 @@
+搭建工程：
+step 1:创建gradle的project并添加src目录将其设置为source类型；
+step 2:将本工程设置为git可以管理的pro
+    1）在本工程根目录创建一个README起说明性作用
+    2）在root目录运行'git init' -> 'git add README' -> 'git commit -m "description"',到此是在本地提交了代码
+    3）创建远程仓库，并执行'git remote add origin https://github.com/lixufei/bowlinggame.git'
+    4）将代码提交到远程仓库'git push -u origin master'(第一次提交到命令)
