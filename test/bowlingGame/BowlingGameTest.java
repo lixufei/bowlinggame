@@ -28,6 +28,8 @@ public class BowlingGameTest {
         game.add (3);
         game.add (6);
 
-        assertEquals(17, game.score ());
+        assertEquals(17, game.score());
+        assertEquals(8, game.scoreForFrame(1));
+        assertEquals(9, game.scoreForFrame(2));
     }
 }
