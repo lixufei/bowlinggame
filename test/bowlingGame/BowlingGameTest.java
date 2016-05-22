@@ -45,15 +45,6 @@ public class BowlingGameTest {
         assertEquals(18, game.scoreForFrame(2));
     }
 
-//    @Test
-//    public void testOneThrows () throws Exception {
-//        game.add (4);
-//
-//        assertEquals(4, game.score());
-//        assertEquals(4, game.scoreForFrame(1));
-//        assertEquals(1, game.getCurrentFrame());
-//    }
-
     @Test
     public void testTwoThrows () throws Exception {
         game.add (4);
@@ -61,5 +52,27 @@ public class BowlingGameTest {
 
         assertEquals(9, game.scoreForFrame(1));
         assertEquals(2, game.getCurrentFrame());
+    }
+
+    @Test
+    public void test () throws Exception {
+        game.add (10);
+        game.add (5);
+        game.add (2);
+
+        assertEquals(17, game.scoreForFrame(1));
+        assertEquals(24, game.score());
+        assertEquals(3, game.getCurrentFrame());
+    }
+
+    @Test
+    public void testPerfectGame () throws Exception {
+        for (int i = 0; i < 12; i++) {
+            game.add (10);
+        }
+
+        assertEquals(30, game.scoreForFrame(1));
+        assertEquals(300, game.score());
+        assertEquals(11, game.getCurrentFrame());
     }
 }
