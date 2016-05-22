@@ -30,7 +30,7 @@ public class Game {
                 int frameScore = firstThrow + secondThrow;
 
                 if (frameScore == 10) {
-                    score = frameScore + itsThrows[ball]; //思考为什么不是score = frameScore + itsThrows[ball++];
+                    score += frameScore + itsThrows[ball]; //思考为什么不是score = frameScore + itsThrows[ball++];
                 } else {
                     score += frameScore;
                 }
