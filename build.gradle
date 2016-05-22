@@ -8,7 +8,7 @@ task wrapper(type: Wrapper) {
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.7
 
 repositories {
     mavenCentral()
@@ -16,4 +16,60 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+task hello {
+    doLast {
+        println "hello!!!!........"
+    }
+}
+
+task helloworld << {
+    println "hello world!!!!........"
+}
+
+task intro(dependsOn:hello) << {
+    println "depends on hello task."
+}
+
+//延迟依赖的被以来的task不能用短标记
+task introafter(dependsOn: 'taskyyy') << {
+    println "depends on hello task."
+}
+
+// << 是doLast的简写
+task taskyyy << {
+    println "task yyy...."
+}
+
+//创建动态任务，注意testtask$counter必须要用双引号，不能是单引号
+4.times { counter ->
+    task "testtask$counter" << {
+        println "this is task $counter."
+    }
+}
+//1）通过API进行任务之间多通信：增加依赖
+testtask1.dependsOn testtask3, testtask2 //思考为啥不能用testtask4？
+
+//2）通过API进行任务之间多通信：增加任务行为
+task multipletask << {
+    println "hello multipletask."
+}
+
+multipletask.doFirst {
+    println "first multipletask."
+}
+multipletask.doLast {
+    println "last multipletask."
+}
+multipletask << {
+    println "last last multipletask."
+}
+//定义default tasks
+defaultTasks "run", "clean1"
+task run << {
+    println "default task run."
+}
+task clean1 << {
+    println "default task clean."
 }

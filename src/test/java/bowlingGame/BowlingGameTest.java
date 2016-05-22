@@ -1,5 +1,6 @@
 package bowlingGame;
 
+import bowlingGame.Game;
 import org.junit.Before;
 import org.junit.Test;
 
