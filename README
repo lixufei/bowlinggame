@@ -16,7 +16,7 @@ step 2:将本工程设置为git可以管理的pro
     7）Command ＋ shift ＋ F10
     and so on.
 
-Gradle
+Gradle:
     1)'gradle build'时，gradle会编译并执行单元测试，并将src/main/*下面的class和资源文件打包。
     2）注意gradle中默认的目录结构：
                     project
@@ -25,3 +25,5 @@ Gradle
                            +src/main/resources
                            +src/test/java
                            +src/test/resources
+
+列tasks:

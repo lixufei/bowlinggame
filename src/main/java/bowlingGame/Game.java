@@ -1,6 +1,9 @@
 package bowlingGame;
 
 public class Game {
+    private int ball;
+    private int firstThrow;
+    private int secondThrow;
     private int itsScore = 0;
     private int[] itsThrows = new int[21];
     private int currentThrows = 0;
@@ -18,24 +21,31 @@ public class Game {
     }
 
     public int scoreForFrame(int theFrame) {
-        int ball = 0;
+        ball = 0;
         int score = 0;
         for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
-            int firstThrow = itsThrows[ball++];
+            firstThrow = itsThrows[ball++];
 
             if (firstThrow == 10) {
                 score += 10 + itsThrows[ball] + itsThrows[ball+1];
             } else {
-                int secondThrow = itsThrows[ball++];
-                int frameScore = firstThrow + secondThrow;
-
-                if (frameScore == 10) {
-                    score += frameScore + itsThrows[ball]; //思考为什么不是score = frameScore + itsThrows[ball++];
-                } else {
-                    score += frameScore;
-                }
+                score += handleSecondThrow();
             }
         }
+        return score;
+    }
+
+    private int handleSecondThrow () {
+        secondThrow = itsThrows[ball++];
+        int score = 0;
+        int frameScore = firstThrow + secondThrow;
+
+        if (frameScore == 10) {
+            score += frameScore + itsThrows[ball]; //思考为什么不是score = frameScore + itsThrows[ball++];
+        } else {
+            score += frameScore;
+        }
+
         return score;
     }
 
